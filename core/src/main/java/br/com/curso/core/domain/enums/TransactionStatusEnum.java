@@ -1,6 +1,6 @@
 package br.com.curso.core.domain.enums;
 
-public enum TransactioStatusEnum {
+public enum TransactionStatusEnum {
     CREATED,
     CANCELED,
     SUCCESS,
