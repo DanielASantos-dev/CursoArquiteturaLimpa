@@ -1,4 +1,4 @@
-package br.com.curso.entity;
+package br.com.curso.infrastructure.entity;
 
 import br.com.curso.core.domain.enums.UserTypeEnum;
 import jakarta.persistence.*;
@@ -40,6 +40,6 @@ public class UserEntity {
     @Column(name = "CreatedAt", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt", nullable = false)
+    @Column(name = "UpdatedAt")
     private LocalDateTime updatedAt;
 }

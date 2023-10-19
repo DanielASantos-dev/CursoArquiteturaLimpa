@@ -5,7 +5,7 @@ CREATE TABLE Transactions(
     TransactionValue DECIMAL(10, 2) NOT NULL,
     Status VARCHAR(30) NOT NULL,
     CreatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UpadteAt DATETIME,
+    UpdateAt DATETIME,
 
     FOREIGN KEY (FromWallet) REFERENCES Wallets(Id),
     FOREIGN KEY (ToWallet) REFERENCES Wallets(Id)

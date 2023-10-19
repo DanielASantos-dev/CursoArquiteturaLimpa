@@ -1,4 +1,4 @@
-package br.com.curso.entity;
+package br.com.curso.infrastructure.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,8 +31,14 @@ public class TransactionPinEntity {
     @Column(name = "CreatedAt", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt", nullable = false)
+    @Column(name = "UpdatedAt")
     private LocalDateTime updatedAt;
 
-
+    public TransactionPinEntity(String pin, Integer attempt, Boolean blocked, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.pin = pin;
+        this.attempt = attempt;
+        this.blocked = blocked;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }

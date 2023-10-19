@@ -1,4 +1,4 @@
-package br.com.curso.entity;
+package br.com.curso.infrastructure.entity;
 
 import br.com.curso.core.domain.enums.TransactionStatusEnum;
 import jakarta.persistence.*;
@@ -16,7 +16,7 @@ public class TransactionEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "ToWallet")
+    @JoinColumn(name = "fromWallet")
     private WalletEntity fromWallet;
 
     @ManyToOne
@@ -33,8 +33,7 @@ public class TransactionEntity {
     @Column(name = "CreatedAt", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "UpdatedAt", nullable = false)
+    @Column(name = "UpdatedAt")
     private LocalDateTime updatedAt;
-
 
 }
