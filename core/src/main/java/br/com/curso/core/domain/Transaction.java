@@ -1,6 +1,6 @@
 package br.com.curso.core.domain;
 
-import br.com.curso.core.domain.enums.TransactioStatusEnum;
+import br.com.curso.core.domain.enums.TransactionStatusEnum;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,11 +10,11 @@ public class Transaction {
     private Wallet fromWallet;
     private Wallet toWallet;
     private BigDecimal value;
-    private TransactioStatusEnum status;
+    private TransactionStatusEnum status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Transaction(Long id, Wallet fromWallet, Wallet toWallet, BigDecimal value, TransactioStatusEnum status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Transaction(Long id, Wallet fromWallet, Wallet toWallet, BigDecimal value, TransactionStatusEnum status, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.fromWallet = fromWallet;
         this.toWallet = toWallet;
@@ -28,7 +28,7 @@ public class Transaction {
         this.fromWallet = fromWallet;
         this.toWallet = toWallet;
         this.value = value;
-        this.status = TransactioStatusEnum.CREATED;
+        this.status = TransactionStatusEnum.CREATED;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -67,11 +67,11 @@ public class Transaction {
         this.value = value;
     }
 
-    public TransactioStatusEnum getStatus() {
+    public TransactionStatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(TransactioStatusEnum status) {
+    public void setStatus(TransactionStatusEnum status) {
         this.status = status;
     }
 
