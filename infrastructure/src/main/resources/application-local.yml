@@ -18,3 +18,6 @@ security:
   jwt:
     secret: 0412c946-a382-4be6-9245-ebde9ef911dd
     expiration: 900
+
+client:
+  url: https://run.mocky.io/v3/4abec2b1-4f6d-4c08-b3cd-eda87bed56e5

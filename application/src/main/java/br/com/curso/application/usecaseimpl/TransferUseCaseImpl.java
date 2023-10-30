@@ -27,7 +27,7 @@ public class TransferUseCaseImpl implements TransferUseCase {
     }
 
     @Override
-    public Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pín) throws InternalServerErrorException, TransferException, NotFoundException, NotificationException, PinException {
+    public Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pín) throws Exception {
         Wallet from = findWalletByTaxNumberUseCase.findByTaxNumber(fromTaxNumber);
         Wallet to = findWalletByTaxNumberUseCase.findByTaxNumber(toTaxNumber);
 
