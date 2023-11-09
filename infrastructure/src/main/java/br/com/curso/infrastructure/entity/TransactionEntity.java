@@ -2,10 +2,16 @@ package br.com.curso.infrastructure.entity;
 
 import br.com.curso.core.domain.enums.TransactionStatusEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Transactions")
 public class TransactionEntity {
@@ -36,4 +42,12 @@ public class TransactionEntity {
     @Column(name = "UpdatedAt")
     private LocalDateTime updatedAt;
 
+    public TransactionEntity(WalletEntity fromWallet, WalletEntity toWallet, BigDecimal value, TransactionStatusEnum status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.fromWallet = fromWallet;
+        this.toWallet = toWallet;
+        this.value = value;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }

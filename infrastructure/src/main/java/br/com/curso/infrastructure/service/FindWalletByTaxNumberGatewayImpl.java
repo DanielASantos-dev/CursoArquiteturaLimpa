@@ -5,6 +5,7 @@ import br.com.curso.core.domain.Wallet;
 import br.com.curso.infrastructure.mapper.WalletMapper;
 import br.com.curso.infrastructure.repository.WalletEntityRepository;
 import org.springframework.stereotype.Service;
+import static br.com.curso.infrastructure.utils.Utilities.log;
 
 @Service
 public class FindWalletByTaxNumberGatewayImpl implements FindWalletByTaxNumberGateway {
@@ -18,6 +19,7 @@ public class FindWalletByTaxNumberGatewayImpl implements FindWalletByTaxNumberGa
 
     @Override
     public Wallet findByTaxNumber(String taxNumber) throws Exception {
+        log.info("Inicio da busca da carteira::FindWalletByTaxNumberGatewayImpl");
         return walletMapper.toWallet(walletEntityRepository.findByUserEntityTaxNumber(taxNumber));
     }
 }

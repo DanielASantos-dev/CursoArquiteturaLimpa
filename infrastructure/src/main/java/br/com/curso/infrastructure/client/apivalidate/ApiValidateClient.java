@@ -1,6 +1,6 @@
-package br.com.curso.infrastructure.client;
+package br.com.curso.infrastructure.client.apivalidate;
 
-import br.com.curso.infrastructure.client.dto.response.ApiValidateResponse;
+import br.com.curso.infrastructure.client.apivalidate.response.ApiValidateResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

@@ -17,11 +17,22 @@ public class TransactionPinMapper {
         );
     }
 
+    public TransactionPinEntity toTransactionPinEntityUpdate(TransactionPin transactionPin){
+        return new TransactionPinEntity(
+                transactionPin.getId(),
+                transactionPin.getPin(),
+                transactionPin.getAttempt(),
+                transactionPin.getBlocked(),
+                transactionPin.getCreatedAt(),
+                transactionPin.getUpdateAt()
+        );
+    }
+
     public TransactionPin toTransactionPin(TransactionPinEntity transactionPinEntity) {
         return new TransactionPin(
                 transactionPinEntity.getId(),
                 transactionPinEntity.getPin(),
-                transactionPinEntity.getAttempt(),
+                transactionPinEntity.getAttempt(), 
                 transactionPinEntity.getBlocked(),
                 transactionPinEntity.getCreatedAt(),
                 transactionPinEntity.getUpdatedAt()

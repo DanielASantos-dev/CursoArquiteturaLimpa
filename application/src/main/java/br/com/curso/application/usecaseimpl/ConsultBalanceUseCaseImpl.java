@@ -1,20 +1,19 @@
 package br.com.curso.application.usecaseimpl;
 
-import br.com.curso.application.gateway.ConsultBalanceGateway;
-import br.com.curso.core.domain.Wallet;
 import br.com.curso.usecase.ConsultBalanceUseCase;
+import br.com.curso.usecase.FindWalletByTaxNumberUseCase;
 
 import java.math.BigDecimal;
 
 public class ConsultBalanceUseCaseImpl implements ConsultBalanceUseCase {
-    private ConsultBalanceGateway consultBalanceGateway;
+    private FindWalletByTaxNumberUseCase findWalletByTaxNumberUseCase;
 
-    public ConsultBalanceUseCaseImpl(ConsultBalanceGateway consultBalanceGateway) {
-        this.consultBalanceGateway = consultBalanceGateway;
+    public ConsultBalanceUseCaseImpl(FindWalletByTaxNumberUseCase findWalletByTaxNumberUseCase) {
+        this.findWalletByTaxNumberUseCase = findWalletByTaxNumberUseCase;
     }
 
     @Override
-    public BigDecimal consult(Wallet wallet) {
-        return consultBalanceGateway.consult(wallet);
+    public BigDecimal consult(String taxNumber) throws Exception {
+        return findWalletByTaxNumberUseCase.findByTaxNumber(taxNumber).getBalance();
     }
 }

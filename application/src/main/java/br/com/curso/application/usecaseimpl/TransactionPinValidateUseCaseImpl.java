@@ -11,23 +11,24 @@ public class TransactionPinValidateUseCaseImpl implements TransactionPinValidate
     private TransactionPinValidateGateway transactionPinValidateGateway;
     private UpdateTransactionPinUseCase updateTransactionPinUseCase;
 
-    public TransactionPinValidateUseCaseImpl(TransactionPinValidateGateway transactionPinValidateGateway) {
+    public TransactionPinValidateUseCaseImpl(TransactionPinValidateGateway transactionPinValidateGateway, UpdateTransactionPinUseCase updateTransactionPinUseCase) {
         this.transactionPinValidateGateway = transactionPinValidateGateway;
+        this.updateTransactionPinUseCase = updateTransactionPinUseCase;
     }
 
     @Override
-    public Boolean validate(TransactionPin transactionPin) throws PinException {
+    public Boolean validate(TransactionPin transactionPin, String pin) throws PinException {
         if (transactionPin.getBlocked()) throw new PinException(ErrorCodeEnum.PIN0001.getMessage(), ErrorCodeEnum.PIN0001.getCode());
 
-        if (!transactionPinValidateGateway.validate(transactionPin)){
+        if (!transactionPinValidateGateway.validate(transactionPin, pin)){
             transactionPin.setAttempt();
-            var transactionPinUpdated = updateTransactionPinUseCase.upadte(transactionPin);
+            var transactionPinUpdated = updateTransactionPinUseCase.update(transactionPin);
             throw new PinException(ErrorCodeEnum.pin0002GetMessage(transactionPinUpdated.getAttempt()), ErrorCodeEnum.PIN0002.getCode());
         }
 
         if (transactionPin.getAttempt() < 3){
             transactionPin.restaureAttempt();
-            updateTransactionPinUseCase.upadte(transactionPin);
+            updateTransactionPinUseCase.update(transactionPin);
         }
 
         return true;

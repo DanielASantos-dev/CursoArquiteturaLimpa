@@ -27,11 +27,11 @@ public class TransferUseCaseImpl implements TransferUseCase {
     }
 
     @Override
-    public Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pín) throws Exception {
+    public Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pin) throws Exception {
         Wallet from = findWalletByTaxNumberUseCase.findByTaxNumber(fromTaxNumber);
         Wallet to = findWalletByTaxNumberUseCase.findByTaxNumber(toTaxNumber);
 
-        transactionPinValidateUseCase.validate(from.getTransactionPin());
+        transactionPinValidateUseCase.validate(from.getTransactionPin(), pin);
 
         from.transfer(value);
         to.receiveTransfer(value);
