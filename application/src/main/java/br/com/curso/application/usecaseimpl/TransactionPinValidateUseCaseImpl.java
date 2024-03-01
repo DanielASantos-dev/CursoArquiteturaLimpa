@@ -8,8 +8,8 @@ import br.com.curso.usecase.TransactionPinValidateUseCase;
 import br.com.curso.usecase.UpdateTransactionPinUseCase;
 
 public class TransactionPinValidateUseCaseImpl implements TransactionPinValidateUseCase {
-    private TransactionPinValidateGateway transactionPinValidateGateway;
-    private UpdateTransactionPinUseCase updateTransactionPinUseCase;
+    final private TransactionPinValidateGateway transactionPinValidateGateway;
+    final private UpdateTransactionPinUseCase updateTransactionPinUseCase;
 
     public TransactionPinValidateUseCaseImpl(TransactionPinValidateGateway transactionPinValidateGateway, UpdateTransactionPinUseCase updateTransactionPinUseCase) {
         this.transactionPinValidateGateway = transactionPinValidateGateway;

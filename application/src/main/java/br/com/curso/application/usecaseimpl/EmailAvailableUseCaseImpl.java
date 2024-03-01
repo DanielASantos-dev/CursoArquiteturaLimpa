@@ -1,6 +1,8 @@
 package br.com.curso.application.usecaseimpl;
 
 import br.com.curso.application.gateway.EmailAvailableGateway;
+import br.com.curso.core.exception.EmailException;
+import br.com.curso.core.exception.enums.ErrorCodeEnum;
 import br.com.curso.usecase.EmailAvailableUseCase;
 
 public class EmailAvailableUseCaseImpl implements EmailAvailableUseCase {
@@ -11,7 +13,11 @@ public class EmailAvailableUseCaseImpl implements EmailAvailableUseCase {
     }
 
     @Override
-    public Boolean emailAvailableEmail(String email) {
-        return emailAvailableGateway.emailAvailable(email);
+    public Boolean emailAvailableEmail(String email) throws EmailException {
+        if (!emailAvailableGateway.emailAvailable(email)) {
+            throw new EmailException(ErrorCodeEnum.ON0003.getMessage(), ErrorCodeEnum.ON0003.getCode());
+        }
+
+        return true;
     }
 }

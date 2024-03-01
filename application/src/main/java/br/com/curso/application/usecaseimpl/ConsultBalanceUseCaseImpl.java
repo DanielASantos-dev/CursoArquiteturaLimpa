@@ -6,7 +6,7 @@ import br.com.curso.usecase.FindWalletByTaxNumberUseCase;
 import java.math.BigDecimal;
 
 public class ConsultBalanceUseCaseImpl implements ConsultBalanceUseCase {
-    private FindWalletByTaxNumberUseCase findWalletByTaxNumberUseCase;
+    final private FindWalletByTaxNumberUseCase findWalletByTaxNumberUseCase;
 
     public ConsultBalanceUseCaseImpl(FindWalletByTaxNumberUseCase findWalletByTaxNumberUseCase) {
         this.findWalletByTaxNumberUseCase = findWalletByTaxNumberUseCase;
