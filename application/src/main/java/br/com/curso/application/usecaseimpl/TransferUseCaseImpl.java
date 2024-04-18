@@ -9,7 +9,6 @@ import br.com.curso.usecase.*;
 public class TransferUseCaseImpl implements TransferUseCase {
 
     final private TransferGateway transferGateway;
-
     public TransferUseCaseImpl(TransferGateway transferGateway) {
         this.transferGateway = transferGateway;
     }
