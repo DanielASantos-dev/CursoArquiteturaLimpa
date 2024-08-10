@@ -6,4 +6,8 @@ public class TransactionPinException extends Throwable {
         super(message);
         this.code = code;
     }
+
+    public String getCode() {
+        return code;
+    }
 }

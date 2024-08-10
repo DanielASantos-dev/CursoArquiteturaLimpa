@@ -16,12 +16,12 @@ import static br.com.curso.infrastructure.utils.Utilities.log;
 
 @Service
 public class CreateUserGatewayImpl implements CreateUserGateway {
-    private UserEntityRepository userEntityRepository;
-    private UserMapper userMapper;
-    private TransactionPinEntityRepository transactionPinEntityRepository;
-    private TransactionPinMapper transactionPinMapper;
-    private WalletEntityRepository walletEntityRepository;
-    private WalletMapper walletMapper;
+    private final UserEntityRepository userEntityRepository;
+    private final UserMapper userMapper;
+    private final TransactionPinEntityRepository transactionPinEntityRepository;
+    private final TransactionPinMapper transactionPinMapper;
+    private final WalletEntityRepository walletEntityRepository;
+    private final WalletMapper walletMapper;
 
     public CreateUserGatewayImpl(UserEntityRepository userEntityRepository, UserMapper userMapper, TransactionPinEntityRepository transactionPinEntityRepository, TransactionPinMapper transactionPinMapper, WalletEntityRepository walletEntityRepository, WalletMapper walletMapper) {
         this.userEntityRepository = userEntityRepository;

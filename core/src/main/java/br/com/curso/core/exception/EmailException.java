@@ -8,4 +8,8 @@ public class EmailException extends Exception{
         super(message);
         this.code = code;
     }
+
+    public String getCode() {
+        return code;
+    }
 }

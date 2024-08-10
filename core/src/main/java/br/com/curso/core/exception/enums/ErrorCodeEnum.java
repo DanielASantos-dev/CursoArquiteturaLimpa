@@ -14,11 +14,9 @@ public enum ErrorCodeEnum {
 
 
     WA0001("Carteira não encontrada", "WA-0001"),
-
     NO0001("Houve um erro na notificação do usuário", "NO-0001"),
-
     ATH0001("Houve um erro na autenticação", "ATH-0001"),
-
+    ATH0002("Invalid request", "ATH-0002"),
     PIN0001("Pin de transação bloqueado", "PIN-0001"),
     PIN0002("Pin incorreto, %d tentativa(s) restante(s)", "PIN-0002")
 
